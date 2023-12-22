@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div style="display: flex; flex-direction: column; width: 100%; text-align: center; margin-top: 50px;">
+        <div class="typewriter">
+            <h1 style="font-size: 200px;  width: 550px;">Litix</h1>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <h1 style="margin-bottom: 20px;">Welcome to Litix - Your Premier File Hosting Solution</h1>
+            <h2>
+                At Litix, we follow the standards of file hosting, <br>
+                providing a seamless and secure experience <br> powered by Amazon S3 services.
+            </h2>
+        </div>
+
+        <h1><a class="start" href="/repository">Get started</a></h1>
+    </div>
+
+
+<style>
+    .typewriter h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    animation:
+        typing 0.5s steps(5, end),
+        blink-caret 2.5s step-end infinite;
+    }
+
+    @keyframes typing {
+    from { width: 0 }
+    to { width: 500px }
+    }
+</style>
+
+{% endblock %}

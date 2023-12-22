@@ -1,0 +1,14 @@
+{% extends 'auth/base.html' %}
+
+{% block content %}
+<div class="form-content">
+    <form method="post" action="/register">
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="text" placeholder="Username" autocomplete="off" name="name" required>
+        <input type="password" placeholder="Password" name="password" required id="password">
+        <div class="error"><h3>{{ error }}</h3></div>
+        <input type="submit" value="Sign up" id="submit">
+    </form>
+    <h4 style="margin: 10px;"><a href="/login">Already have an account?</a></h4>
+</div>
+{% endblock %}

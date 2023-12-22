@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div class="rep-column" style="background: rgba(50, 104, 154, 0.4); backdrop-filter: blur(10px);">
+        <h1 style="margin-left: auto; margin-right: auto; margin-bottom: 20px; "><a href="/repository">Your folders</a></h1>
+        <form action="/repository/create/" method="post">
+            <input class="folder-input" type="text" name="name" inputmode="url" placeholder="Name" autocomplete="off" maxlength="45" required>
+            <input class="folder-input" type="submit" value="Create">
+        </form>
+        {% for repository in repositories %}
+            <div style="display: flex; flex-direction: row; margin-bottom: 20px;">
+                <a href="/repository/{{ repository.link }}" class="folder-link"><h3 style="color: #1E1E1E;">{{ repository.view_name }}</h3></a>
+                <a class="delete-icon" href="/repository/delete/{{ repository.name }}"><span class="material-symbols-outlined">delete</span></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="folder-items">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}

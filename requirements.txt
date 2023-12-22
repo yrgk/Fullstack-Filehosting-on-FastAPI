@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+psycopg2
+sqlalchemy
+pyjwt
+passlib
+boto3
+python-slugify

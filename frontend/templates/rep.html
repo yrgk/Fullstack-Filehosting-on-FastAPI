@@ -1,0 +1,30 @@
+{% extends 'reps.html' %}
+
+{% block title %} | {{ repository.view_name }}{% endblock %}
+
+{% block content %}
+
+    <div class="file-item" style="border-radius: 10px;">
+        <h3 style="color: #1E1E1E; margin-top: 15px; word-break: break-all;" class="file-name" id="repository-name">Upload file to {{ repository.view_name }}</h3>
+
+        <div class="right-content">
+            <form style="flex-direction: row;" enctype="multipart/form-data" method="post" action="/file/add/{{ repository.link }}">
+                <input style="margin-top: 15px; margin-right: 0px;" type="file" name="file">
+                <input class="file-submit" type="submit" value="Upload">
+            </form>
+        </div>
+    </div>
+
+    {% for file in files %}
+        <div class="file-item" style="background: rgba(50, 104, 154, 0.4); backdrop-filter: blur(10px);">
+            <h2 style="color: aliceblue;" class="file-name">{{ file.view_name }}</h2>
+            <div class="right-content">
+                <h4 class="download-link"><a style="color: aliceblue; margin: 15px;" href="{{file.download_link}}">Download</a></h4>
+                <form action="/file/remove?bucket_name={{repository.name}}&name={{file.name}}" method="post">
+                    <input class="remove-file-input" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+    <div style="display: flex; flex-direction: column; width: 100%;">
+        <h1 style="margin-bottom: 40px;">{{ repository.name[18:] }}</h1>
+
+        {% for file in files %}
+        <a style="color: aliceblue;" href="{{file.download_link}}">
+            <div class="file-item" style="background: rgba(50, 104, 154, 0.4); backdrop-filter: blur(10px); width: 100%;">
+                <h2 style="color: aliceblue;" class="file-name">{{ file.name }}</h2>
+                <div class="right-content">
+                    <h4 style="color: aliceblue; margin: 15px;">Download</h4>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}
